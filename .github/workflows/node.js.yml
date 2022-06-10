@@ -16,13 +16,18 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [12.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - name: my first step
       env: 
-        MY_VAR: Hi there! My name is !
+        MY_VAR: Hi there! My name is 
         FIRST_NAME: Wale
         LAST_NAME: Moh
       run: echo $MY_VAR $FIRST_NAME $LAST_NAME
+    - name:  my second step
+      if: success{}
+      run: echo "first step ran successfully"
+
+
