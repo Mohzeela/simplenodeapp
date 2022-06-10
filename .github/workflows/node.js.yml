@@ -27,7 +27,11 @@ jobs:
         LAST_NAME: Moh
       run: echo $MY_VAR $FIRST_NAME $LAST_NAME
     - name:  my second step
-      if: success{}
+      if: success()
       run: echo "first step ran successfully"
-
+    - name: my third step
+      uses:  action/checkout@v1
+      with: 
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
 
